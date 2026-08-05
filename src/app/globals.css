@@ -1,0 +1,124 @@
+@import "tailwindcss";
+
+/*
+  Charmberry Crochets — design tokens.
+  Palette, spacing and radii are intentionally restrained.
+  Edit values here to retune the whole visual system.
+*/
+:root {
+  --color-cream: #fff9f7;
+  --color-surface: #ffffff;
+  --color-blush: #fcecef;
+  --color-milk: #f7d3dc;
+  --color-pink: #e99aaa;
+  --color-rose: #c97889;
+  --color-berry: #7c3748;
+  --color-berry-deep: #5c2637;
+  --color-brown: #352a29;
+  --color-muted: #85706c;
+  --color-neutral: #eee8e5;
+  --color-border: #e7dcd8;
+
+  --container-max: 1400px;
+  --header-height: 84px;
+  --header-height-compact: 64px;
+  --announcement-height: 38px;
+}
+
+@theme inline {
+  --color-cream: var(--color-cream);
+  --color-surface: var(--color-surface);
+  --color-blush: var(--color-blush);
+  --color-milk: var(--color-milk);
+  --color-pink: var(--color-pink);
+  --color-rose: var(--color-rose);
+  --color-berry: var(--color-berry);
+  --color-berry-deep: var(--color-berry-deep);
+  --color-brown: var(--color-brown);
+  --color-muted: var(--color-muted);
+  --color-neutral: var(--color-neutral);
+  --color-border: var(--color-border);
+
+  --font-display: var(--font-fraunces);
+  --font-sans: var(--font-manrope);
+
+  --container-2xl: var(--container-max);
+
+  /* restrained radius scale — deliberately capped, no giant rounded-3xl blobs */
+  --radius-xs: 2px;
+  --radius-sm: 3px;
+  --radius-md: 5px;
+  --radius-lg: 8px;
+  --radius-xl: 8px;
+  --radius-2xl: 12px;
+  --radius-3xl: 14px;
+
+  --animate-marquee: marquee 42s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+* {
+  border-color: var(--color-border);
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: var(--header-height);
+}
+
+body {
+  background: var(--color-cream);
+  color: var(--color-brown);
+  font-family: var(--font-sans);
+  font-feature-settings: "ss01" 1;
+}
+
+::selection {
+  background: var(--color-pink);
+  color: var(--color-surface);
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-berry);
+  outline-offset: 3px;
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/* subtle paper grain, used sparingly on large cream sections */
+.grain {
+  position: relative;
+  isolation: isolate;
+}
+
+.grain::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.5;
+  mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.05'/%3E%3C/svg%3E");
+}
+
+.font-display {
+  letter-spacing: -0.01em;
+}
+

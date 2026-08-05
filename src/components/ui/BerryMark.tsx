@@ -1,0 +1,29 @@
+type BerryMarkProps = {
+  className?: string;
+};
+
+/**
+ * The Charmberry motif — a small four-petal stitch mark.
+ * Used sparingly: favicon, dividers, footer, hover accents.
+ */
+export function BerryMark({ className }: BerryMarkProps) {
+  return (
+    <svg
+      viewBox="0 0 32 32"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      className={className}
+      aria-hidden="true"
+    >
+      <path
+        d="M16 3C17.1 8.2 19.8 10.9 25 12C19.8 13.1 17.1 15.8 16 21C14.9 15.8 12.2 13.1 7 12C12.2 10.9 14.9 8.2 16 3Z"
+        fill="currentColor"
+      />
+      <path
+        d="M16 21C16.7 24 18.2 25.5 21 26.2C18.2 26.9 16.7 28.4 16 31.2C15.3 28.4 13.8 26.9 11 26.2C13.8 25.5 15.3 24 16 21Z"
+        fill="currentColor"
+        opacity="0.55"
+      />
+    </svg>
+  );
+}
