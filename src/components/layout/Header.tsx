@@ -2,9 +2,9 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { Menu } from "lucide-react";
 import { siteConfig } from "@/data/siteConfig";
-import { BerryMark } from "@/components/ui/BerryMark";
 import { MobileMenu } from "./MobileMenu";
 
 export function Header() {
@@ -62,7 +62,13 @@ export function Header() {
             className="flex items-center gap-2 justify-self-center"
             aria-label={`${siteConfig.brand.name} — home`}
           >
-            <BerryMark className="h-5 w-5 shrink-0 text-pink md:hidden" />
+            <Image
+              src={siteConfig.brand.logo}
+              alt=""
+              width={40}
+              height={40}
+              className="h-9 w-9 shrink-0 rounded-full object-cover sm:h-10 sm:w-10"
+            />
             <span className="whitespace-nowrap font-display text-lg tracking-tight text-brown sm:hidden">
               {siteConfig.brand.shortName}
             </span>
