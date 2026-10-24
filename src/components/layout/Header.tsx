@@ -44,7 +44,7 @@ export function Header() {
           scrolled ? "h-16 border-b border-border" : "h-[84px] border-b border-transparent"
         }`}
       >
-        <div className="mx-auto grid h-full max-w-[var(--container-max)] grid-cols-[1fr_auto_1fr] items-center px-6 sm:px-8 lg:px-12">
+        <div className="mx-auto grid h-full max-w-[var(--container-max)] grid-cols-[minmax(0,1fr)_auto] items-center gap-2 px-4 sm:gap-3 sm:px-8 md:grid-cols-[1fr_auto_1fr] md:gap-0 lg:px-12">
           <nav aria-label="Primary" className="hidden items-center gap-8 md:flex">
             {leftLinks.map((link) => (
               <Link
@@ -59,7 +59,7 @@ export function Header() {
 
           <Link
             href="/"
-            className="flex items-center gap-2 justify-self-center"
+            className="flex min-w-0 items-center gap-2 justify-self-start md:justify-self-center"
             aria-label={`${siteConfig.brand.name} — home`}
           >
             <Image
@@ -69,7 +69,7 @@ export function Header() {
               height={40}
               className="h-9 w-9 shrink-0 rounded-full object-cover sm:h-10 sm:w-10"
             />
-            <span className="whitespace-nowrap font-display text-lg tracking-tight text-brown sm:hidden">
+            <span className="truncate whitespace-nowrap font-display text-lg tracking-tight text-brown sm:hidden">
               {siteConfig.brand.shortName}
             </span>
             <span className="hidden whitespace-nowrap font-display text-xl tracking-tight text-brown sm:inline md:text-2xl">
@@ -77,7 +77,7 @@ export function Header() {
             </span>
           </Link>
 
-          <div className="flex items-center justify-end gap-6">
+          <div className="flex items-center justify-end gap-1 sm:gap-3 md:gap-6">
             <nav aria-label="Secondary" className="hidden items-center gap-8 md:flex">
               {rightLinks.map((link) => (
                 <Link
