@@ -10,7 +10,7 @@ images, reviews, FAQs and editable site copy live here.
 
 You should generally NOT need to edit components.
 
-Replace any value marked REPLACE_ME before launch.
+Keep this content current as the shop grows.
 
 Images:
   Place image files in /public/images (see subfolders).
@@ -224,9 +224,9 @@ export const siteConfig: SiteConfig = {
 
   hero: {
     eyebrow: "Charmberry Crochets",
-    heading: "made slowly,\nloved for a long time.",
+    heading: "made with care,\nloved for a long time.",
     description:
-      "Every piece starts as a ball of yarn and a lot of patience — worked by hand, one stitch at a time.",
+      "Every piece begins with quality yarn and thoughtful detail — crocheted by hand, one stitch at a time.",
     primaryCtaLabel: "Shop crochet",
     primaryCtaHref: "/shop",
   },
@@ -239,8 +239,8 @@ export const siteConfig: SiteConfig = {
 
   editorialStory: {
     eyebrow: "In progress",
-    heading: "Slow, on purpose.",
-    body: "REPLACE_ME — a short paragraph about how pieces come together, in your own words.",
+    heading: "Crafted with intention.",
+    body: "Each design is shaped by hand with careful stitchwork, playful details, and a finish made to feel distinctly Charmberry.",
     image: "/images/products/crochet-cat-ear-beanie-stars-01.jpg",
     imageAlt: "Work in progress, yarn and crochet hook",
     caption: "detail / work in progress",
@@ -249,7 +249,7 @@ export const siteConfig: SiteConfig = {
   craftsmanship: {
     eyebrow: "Handmade",
     heading: "Every piece, worked by hand.",
-    body: "REPLACE_ME — describe materials, technique, or sourcing here only if you can state it factually.",
+    body: "Careful stitchwork, expressive color, and thoughtful finishing give every Charmberry piece its own personality.",
     image: "/images/products/crochet-lily-shoulder-bag-02.jpg",
     imageAlt: "Close-up detail of hand-crocheted stitches",
     caption: "detail / hand-crocheted stitching",
@@ -488,12 +488,15 @@ export const siteConfig: SiteConfig = {
 
   about: {
     eyebrow: "Behind the stitches",
-    heading: "REPLACE_ME",
-    body: ["REPLACE_ME", "REPLACE_ME"],
+    heading: "Crochet made to feel personal.",
+    body: [
+      "Charmberry Crochets creates playful handmade pieces with bold color, sweet details, and a personality all their own.",
+      "Each design is crocheted and finished by hand, from statement bags and cozy accessories to charming keychains and lightstick holders. The result is a collection made to be used, styled, gifted, and loved.",
+    ],
     portrait: "/images/products/fluffy-bunny-removable-dress-01.jpg",
-    portraitAlt: "REPLACE_ME",
-    ownerName: "REPLACE_ME",
-    ownerBio: "REPLACE_ME",
+    portraitAlt: "Handmade fluffy crochet bunny wearing a removable dress",
+    ownerName: "Charmberry Crochets",
+    ownerBio: "Handmade crochet with playful details and personal style.",
     process: [],
   },
 
@@ -502,26 +505,26 @@ export const siteConfig: SiteConfig = {
     eyebrow: "Custom orders",
     heading: "Have something in mind?",
     description:
-      "REPLACE_ME — describe what kinds of custom pieces you take on, and any limits (colors, characters, timelines, etc).",
-    acceptedItems: [],
+      "Make an available Charmberry design your own with custom colors and personalized details. Product pages show the choices available for each piece, with a notes field for the details that matter to you.",
+    acceptedItems: ["Custom color combinations", "Personalized details", "Made-to-order pieces"],
     steps: [
       {
         number: "01",
         title: "Tell me your idea",
-        description: "REPLACE_ME",
+        description: "Choose a product and share your preferred colors, size, or other requested details in its customization field.",
       },
       {
         number: "02",
         title: "We agree on the details",
-        description: "REPLACE_ME",
+        description: "Your selections and notes stay with the item in your cart so every requested detail can be reviewed together.",
       },
       {
         number: "03",
         title: "Your piece is handmade",
-        description: "REPLACE_ME",
+        description: "Your design is crocheted and finished by hand with close attention to the colors and details you selected.",
       },
     ],
-    timeline: "REPLACE_ME",
+    timeline: "Production and delivery estimates are confirmed with your order details.",
     contactLabel: "Browse products",
     contactUrl: "/shop",
   },
@@ -533,27 +536,27 @@ export const siteConfig: SiteConfig = {
     {
       category: "Ordering",
       question: "How do I place an order?",
-      answer: "REPLACE_ME",
+      answer: "Choose a product, select its available color or style options, add any requested customization details, and add it to your cart. You can review every selection before checkout.",
     },
     {
       category: "Ordering",
       question: "Can I change or cancel my order?",
-      answer: "REPLACE_ME",
+      answer: "Message Charmberry as soon as possible if you need to request a change or cancellation. Once work has begun on a handmade or customized piece, some changes may no longer be possible.",
     },
     {
       category: "Custom Orders",
       question: "Do you take custom requests?",
-      answer: "REPLACE_ME",
+      answer: "Yes. Available custom colors and personalization choices are shown on each eligible product page. Add your requested details before placing the item in your cart.",
     },
     {
       category: "Shipping",
       question: "How long does shipping take?",
-      answer: "REPLACE_ME",
+      answer: "Shipping rates and delivery estimates are shown during checkout. Made-to-order pieces also include production time, which is confirmed with the order details.",
     },
     {
       category: "Care",
       question: "How do I take care of my crochet piece?",
-      answer: "REPLACE_ME",
+      answer: "Handle decorative details gently, spot clean when possible, and lay the piece flat to dry away from direct heat. Follow any product-specific care instructions included with your item first.",
     },
   ],
 
@@ -572,7 +575,7 @@ export const siteConfig: SiteConfig = {
   seo: {
     title: "Charmberry Crochets — Handmade Crochet",
     description:
-      "REPLACE_ME — a one or two sentence description of Charmberry Crochets for search results.",
+      "Shop handmade crochet bags, accessories, keychains, lightstick holders, and custom-color pieces from Charmberry Crochets.",
     ogImage: "/images/brand-logo.jpg",
   },
 };
