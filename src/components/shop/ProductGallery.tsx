@@ -47,8 +47,8 @@ export function ProductGallery({ images, alt }: ProductGalleryProps) {
               aria-label={`Show photo ${index + 1} of ${images.length}`}
               aria-current={index === active}
               className={cn(
-                "relative h-20 w-16 shrink-0 overflow-hidden bg-neutral transition-opacity",
-                index === active ? "ring-1 ring-berry" : "opacity-60 hover:opacity-100",
+                "relative h-20 w-16 shrink-0 overflow-hidden bg-neutral",
+                index === active ? "ring-2 ring-berry" : "ring-1 ring-border",
               )}
             >
               {image.exists ? (

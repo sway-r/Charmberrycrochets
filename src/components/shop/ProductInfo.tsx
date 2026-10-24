@@ -1,5 +1,5 @@
 import type { Product } from "@/data/siteConfig";
-import { Button } from "@/components/ui/Button";
+import { ProductOrderForm } from "@/components/shop/ProductOrderForm";
 
 type ProductInfoProps = {
   product: Product;
@@ -33,42 +33,7 @@ export function ProductInfo({ product }: ProductInfoProps) {
         </p>
       )}
 
-      {product.variations.length > 0 && (
-        <section className="border-t border-border pt-6" aria-label="Available variations">
-          {product.variations.map((variation) => (
-            <div key={variation.name} className="mb-4 last:mb-0">
-              <h2 className="mb-2 text-xs font-semibold uppercase tracking-[0.08em] text-muted">
-                {variation.name}
-              </h2>
-              <div className="flex flex-wrap gap-2">
-                {variation.options.map((option) => (
-                  <span
-                    key={option.name}
-                    aria-disabled={option.soldOut || undefined}
-                    className={option.soldOut
-                      ? "border border-border px-3 py-1.5 text-sm text-muted line-through"
-                      : "border border-border px-3 py-1.5 text-sm text-brown"}
-                  >
-                    {option.name}
-                  </span>
-                ))}
-              </div>
-            </div>
-          ))}
-        </section>
-      )}
-
-      {product.soldOut ? (
-        <span className="inline-flex w-fit items-center border border-border px-4 py-2.5 text-xs font-semibold uppercase tracking-[0.1em] text-muted">
-          Currently sold out
-        </span>
-      ) : (
-        product.purchaseUrl && (
-          <Button href={product.purchaseUrl} variant="primary" className="w-fit">
-            {product.purchaseLabel || "Buy on Etsy"}
-          </Button>
-        )
-      )}
+      <ProductOrderForm product={product} />
 
       {product.madeToOrderNote && (
         <p className="text-sm leading-relaxed text-muted">{product.madeToOrderNote}</p>

@@ -6,6 +6,7 @@ import Image from "next/image";
 import { Menu } from "lucide-react";
 import { siteConfig } from "@/data/siteConfig";
 import { MobileMenu } from "./MobileMenu";
+import { CartIndicator } from "@/components/shop/CartIndicator";
 
 export function Header() {
   const [scrolled, setScrolled] = useState(false);
@@ -34,7 +35,6 @@ export function Header() {
   const socialLinks = [
     { label: "Instagram", href: siteConfig.urls.instagram },
     { label: "TikTok", href: siteConfig.urls.tiktok },
-    { label: "Etsy", href: siteConfig.urls.etsy },
   ].filter((link) => link.href);
 
   return (
@@ -105,6 +105,8 @@ export function Header() {
                 ))}
               </div>
             )}
+
+            <CartIndicator />
 
             <button
               type="button"

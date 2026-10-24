@@ -1,7 +1,6 @@
 import Link from "next/link";
 import type { Product } from "@/data/siteConfig";
 import { Photo } from "@/components/ui/Photo";
-import { cn } from "@/lib/utils";
 
 type ProductCardProps = {
   product: Product;
@@ -10,7 +9,7 @@ type ProductCardProps = {
 };
 
 export function ProductCard({ product, priority, sizes }: ProductCardProps) {
-  const [primary, secondary] = product.images;
+  const primary = product.images[0];
 
   return (
     <Link href={`/shop/${product.slug}`} className="group flex flex-col">
@@ -21,20 +20,8 @@ export function ProductCard({ product, priority, sizes }: ProductCardProps) {
           fill
           priority={priority}
           sizes={sizes ?? "(min-width: 1024px) 25vw, (min-width: 640px) 50vw, 100vw"}
-          imgClassName={cn(
-            "transition-[opacity,transform] duration-500 ease-out",
-            secondary ? "group-hover:opacity-0" : "group-hover:scale-[1.025]",
-          )}
+          imgClassName="transition-transform duration-500 ease-out group-hover:scale-[1.025]"
         />
-        {secondary && (
-          <Photo
-            src={secondary}
-            alt={product.imageAlt || product.name}
-            fill
-            sizes={sizes ?? "(min-width: 1024px) 25vw, (min-width: 640px) 50vw, 100vw"}
-            imgClassName="opacity-0 transition-opacity duration-500 ease-out group-hover:opacity-100"
-          />
-        )}
 
         {product.soldOut && (
           <div className="absolute inset-0 bg-cream/45" aria-hidden="true" />

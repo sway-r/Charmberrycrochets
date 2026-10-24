@@ -55,7 +55,6 @@ export default async function ProductPage({ params }: ProductPageProps) {
             availability: product.soldOut
               ? "https://schema.org/OutOfStock"
               : "https://schema.org/InStock",
-            url: product.purchaseUrl || undefined,
           },
         }
       : {}),

@@ -35,13 +35,8 @@ export interface Hero {
   eyebrow: string;
   heading: string;
   description: string;
-  image: string;
-  imageAlt: string;
   primaryCtaLabel: string;
   primaryCtaHref: string;
-  secondaryCtaLabel: string;
-  /** Leave empty to fall back to urls.etsy */
-  secondaryCtaHref: string;
 }
 
 export interface BrandStatement {
@@ -85,9 +80,9 @@ export interface Product {
   category: string;
   images: string[];
   variations: { name: string; options: { name: string; soldOut: boolean }[] }[];
+  customizationPrompt?: string;
+  customizationRequiredFor?: string;
   imageAlt: string;
-  purchaseUrl: string;
-  purchaseLabel: string;
   featured: boolean;
   soldOut: boolean;
   /** e.g. "Made to order" — leave empty to show no badge. Never invent this. */
@@ -163,7 +158,6 @@ export interface SiteConfig {
   };
   urls: {
     website: string;
-    etsy: string;
     instagram: string;
     tiktok: string;
     email: string;
@@ -209,7 +203,6 @@ export const siteConfig: SiteConfig = {
 
   urls: {
     website: "https://charmberrycrochets.com", // e.g. "https://charmberrycrochets.com"
-    etsy: "https://www.etsy.com/shop/CharmberryCrochets",
     instagram: "https://www.instagram.com/charmberry.studios/",
     tiktok: "https://www.tiktok.com/@charmberry.studios?_r=1&_t=ZS-98d7fbOOGOb",
     email: "",
@@ -234,12 +227,8 @@ export const siteConfig: SiteConfig = {
     heading: "made slowly,\nloved for a long time.",
     description:
       "Every piece starts as a ball of yarn and a lot of patience — worked by hand, one stitch at a time.",
-    image: "/images/hero.jpg",
-    imageAlt: "A handmade Charmberry Crochets piece",
     primaryCtaLabel: "Shop crochet",
     primaryCtaHref: "/shop",
-    secondaryCtaLabel: "Visit Etsy",
-    secondaryCtaHref: "",
   },
 
   brandStatement: {
@@ -252,7 +241,7 @@ export const siteConfig: SiteConfig = {
     eyebrow: "In progress",
     heading: "Slow, on purpose.",
     body: "REPLACE_ME — a short paragraph about how pieces come together, in your own words.",
-    image: "/images/studio-01.jpg",
+    image: "/images/products/crochet-cat-ear-beanie-stars-01.jpg",
     imageAlt: "Work in progress, yarn and crochet hook",
     caption: "detail / work in progress",
   },
@@ -261,7 +250,7 @@ export const siteConfig: SiteConfig = {
     eyebrow: "Handmade",
     heading: "Every piece, worked by hand.",
     body: "REPLACE_ME — describe materials, technique, or sourcing here only if you can state it factually.",
-    image: "/images/craftsmanship.jpg",
+    image: "/images/products/crochet-lily-shoulder-bag-02.jpg",
     imageAlt: "Close-up detail of hand-crocheted stitches",
     caption: "detail / hand-crocheted stitching",
   },
@@ -272,24 +261,24 @@ export const siteConfig: SiteConfig = {
   },
 
   categories: [
-    { id: "lightstick-holders", label: "Lightstick Holders", image: "/images/categories/lightstick-holders.jpg" },
-    { id: "bags", label: "Bags", image: "/images/categories/bags.jpg" },
-    { id: "hats", label: "Hats", image: "/images/categories/hats.jpg" },
-    { id: "scarves", label: "Scarves" },
-    { id: "amigurumi", label: "Amigurumi", image: "/images/categories/amigurumi.jpg" },
-    { id: "keychains", label: "Keychains", image: "/images/categories/keychains.jpg" },
+    { id: "lightstick-holders", label: "Lightstick Holders", image: "/images/products/kpop-lightstick-crochet-holder-01.jpg" },
+    { id: "bags", label: "Bags", image: "/images/products/ruffle-heart-bag-purple-tulips-01.jpg" },
+    { id: "hats", label: "Hats", image: "/images/products/crochet-cat-ear-beanie-stars-01.jpg" },
+    { id: "scarves", label: "Scarves", image: "/images/products/soft-crochet-scarf-01.jpg" },
+    { id: "amigurumi", label: "Amigurumi", image: "/images/products/rainbow-scale-dino-amigurumi-01.jpg" },
+    { id: "keychains", label: "Keychains", image: "/images/products/crochet-jellyfish-keychain-01.jpg" },
   ],
 
   products: [
     {
       id: "p1", slug: "crochet-cat-ear-beanie-stars", name: "Crochet Cat Ear Beanie with Star Charms",
-      shortDescription: "This beanie is crocheted with soft yarn, cat ears, and little stars that dangle from each side. It’s warm, cozy, and playful, something to wear on a chilly day, to a festival, or just when you want a touch of fun in your outfit. Each one is made TO ORDER (etsy makes me put a quantity available) with care💗",
-      description: "This beanie is crocheted with soft yarn, cat ears, and little stars that dangle from each side. It’s warm, cozy, and playful, something to wear on a chilly day, to a festival, or just when you want a touch of fun in your outfit. Each one is made TO ORDER (etsy makes me put a quantity available) with care💗\n\nFAQ:\nWashing instructions:\n- Please do not use any heat on this yarn! Only hand wash and air dry.\nCustomizations:\n- I can combine colors and modify the size or length of the hat as needed! Please message me and I will get back to you in just a couple of hours.\n- This hat fits head circumferences of anywhere from 19 inches to 25, the yarn is super soft and stretchy!\nWhen will my order arrive?\n- Please give me 2-4 days to make an order (depending on how many orders are ahead of yours). Shipping is completely out of my hands!",
+      shortDescription: "This beanie is crocheted with soft yarn, cat ears, and little stars that dangle from each side. It’s warm, cozy, and playful, something to wear on a chilly day, to a festival, or just when you want a touch of fun in your outfit. Each one is made TO ORDER with care💗",
+      description: "This beanie is crocheted with soft yarn, cat ears, and little stars that dangle from each side. It’s warm, cozy, and playful, something to wear on a chilly day, to a festival, or just when you want a touch of fun in your outfit. Each one is made TO ORDER with care💗\n\nFAQ:\nWashing instructions:\n- Please do not use any heat on this yarn! Only hand wash and air dry.\nCustomizations:\n- I can combine colors and modify the size or length of the hat as needed! Please message me and I will get back to you in just a couple of hours.\n- This hat fits head circumferences of anywhere from 19 inches to 25, the yarn is super soft and stretchy!\nWhen will my order arrive?\n- Please give me 2-4 days to make an order (depending on how many orders are ahead of yours). Shipping is completely out of my hands!",
       price: "$25.00", currency: "USD", category: "hats",
-      variations: [{"name":"Primary color","options":[{"name":"White","soldOut":false},{"name":"Pink","soldOut":false},{"name":"Purple","soldOut":false},{"name":"Blue","soldOut":false},{"name":"Brown","soldOut":false}]}],
+      variations: [{"name":"Color","options":[{"name":"White","soldOut":false},{"name":"Pink","soldOut":false},{"name":"Purple","soldOut":false},{"name":"Blue","soldOut":false},{"name":"Brown","soldOut":false}]}],
       images: ["/images/products/crochet-cat-ear-beanie-stars-01.jpg", "/images/products/crochet-cat-ear-beanie-stars-02.jpg", "/images/products/crochet-cat-ear-beanie-stars-03.jpg", "/images/products/crochet-cat-ear-beanie-stars-04.jpg", "/images/products/crochet-cat-ear-beanie-stars-05.jpg"],
       imageAlt: "Hand-crocheted cat-ear beanie with dangling star charms",
-      purchaseUrl: "https://www.etsy.com/listing/4429210861/crochet-cat-ear-beanie-with-star-charms", purchaseLabel: "Choose a color on Etsy",
+      customizationPrompt: "Color combination, hat size, or length request (optional)",
       featured: true, soldOut: false, badge: "Made to order", materials: [],
       dimensions: "Fits head circumferences approximately 19–25 inches.",
       care: "Hand wash and air dry. Do not use heat.",
@@ -300,25 +289,23 @@ export const siteConfig: SiteConfig = {
       shortDescription: "A handmade crochet holder designed to fit your Kpop lightstick perfectly! Made to order in any color you choose, so it can match your favorite group, aesthetic, or outfit🫶🏻 Cute, functional, and great for concerts, storage, or display☺️",
       description: "A handmade crochet holder designed to fit your Kpop lightstick perfectly! Made to order in any color you choose, so it can match your favorite group, aesthetic, or outfit🫶🏻 Cute, functional, and great for concerts, storage, or display☺️\nEach holder is carefully crafted from my original design and one of a kind!💕",
       price: "$15.00", currency: "USD", category: "lightstick-holders",
-      variations: [{"name":"Primary color","options":[{"name":"1","soldOut":false},{"name":"2","soldOut":false},{"name":"3","soldOut":false},{"name":"4","soldOut":false},{"name":"5","soldOut":false},{"name":"6","soldOut":false},{"name":"7","soldOut":false},{"name":"8","soldOut":false},{"name":"9","soldOut":false},{"name":"10","soldOut":false},{"name":"11","soldOut":false},{"name":"12","soldOut":false},{"name":"13","soldOut":false},{"name":"14","soldOut":false},{"name":"15","soldOut":false},{"name":"16","soldOut":false},{"name":"17","soldOut":false},{"name":"18","soldOut":false},{"name":"19","soldOut":false},{"name":"20","soldOut":false},{"name":"21","soldOut":false},{"name":"22","soldOut":false},{"name":"23","soldOut":false},{"name":"24","soldOut":false},{"name":"25","soldOut":false},{"name":"26","soldOut":false}]}],
+      variations: [{"name":"Color number","options":[{"name":"1","soldOut":false},{"name":"2","soldOut":false},{"name":"3","soldOut":false},{"name":"4","soldOut":false},{"name":"5","soldOut":false},{"name":"6","soldOut":false},{"name":"7","soldOut":false},{"name":"8","soldOut":false},{"name":"9","soldOut":false},{"name":"10","soldOut":false},{"name":"11","soldOut":false},{"name":"12","soldOut":false},{"name":"13","soldOut":false},{"name":"14","soldOut":false},{"name":"15","soldOut":false},{"name":"16","soldOut":false},{"name":"17","soldOut":false},{"name":"18","soldOut":false},{"name":"19","soldOut":false},{"name":"20","soldOut":false},{"name":"21","soldOut":false},{"name":"22","soldOut":false},{"name":"23","soldOut":false},{"name":"24","soldOut":false},{"name":"25","soldOut":false},{"name":"26","soldOut":false}]}],
       images: ["/images/products/kpop-lightstick-holder-half-01.jpg", "/images/products/kpop-lightstick-holder-half-02.jpg", "/images/products/kpop-lightstick-holder-half-03.jpg", "/images/products/kpop-lightstick-holder-half-04.jpg", "/images/products/kpop-lightstick-holder-half-05.jpg", "/images/products/kpop-lightstick-holder-half-06.jpg", "/images/products/kpop-lightstick-holder-half-07.jpg", "/images/products/kpop-lightstick-holder-half-08.jpg", "/images/products/kpop-lightstick-holder-half-09.jpg"],
       imageAlt: "Half-style handmade crochet holder for a K-pop lightstick",
-      purchaseUrl: "https://www.etsy.com/listing/4496869921/kpop-lightstick-crochet-holder-half", purchaseLabel: "Choose a color on Etsy",
       featured: true, soldOut: false, badge: "Made to order", materials: [], dimensions: "", care: "",
-      madeToOrderNote: "Choose the color on Etsy before ordering.",
+      madeToOrderNote: "Select an available color before adding to cart.",
     },
     {
       id: "p3", slug: "soft-crochet-scarf", name: "Soft Crochet Scarf",
       shortDescription: "Stay warm and adorable all winter with this handmade crochet scarf! 💗🧶",
       description: "Stay warm and adorable all winter with this handmade crochet scarf! 💗🧶\n• Length: 74 inches\n• Width: 7 inches\n• Ruffle fringe: 4 inches\nMade with VERY soft yarn, it perfectly covers the bottom of your face for extra warmth and comfort. Choose your color: pink, purple, blue, white, or brown! The perfect cozy accessory or gift!L,,m",
       price: "$60.00", currency: "USD", category: "scarves",
-      variations: [{"name":"Primary color","options":[{"name":"White","soldOut":false},{"name":"Purple","soldOut":false},{"name":"Pink","soldOut":false},{"name":"Blue","soldOut":false},{"name":"Brown","soldOut":false}]}],
+      variations: [{"name":"Color","options":[{"name":"White","soldOut":false},{"name":"Purple","soldOut":false},{"name":"Pink","soldOut":false},{"name":"Blue","soldOut":false},{"name":"Brown","soldOut":false}]}],
       images: ["/images/products/soft-crochet-scarf-01.jpg", "/images/products/soft-crochet-scarf-02.jpg", "/images/products/soft-crochet-scarf-03.jpg", "/images/products/soft-crochet-scarf-04.jpg", "/images/products/soft-crochet-scarf-05.jpg"],
       imageAlt: "Soft handmade crochet scarf with ruffle fringe",
-      purchaseUrl: "https://www.etsy.com/listing/4430650025/soft-crochet-scarf", purchaseLabel: "Choose a color on Etsy",
       featured: true, soldOut: false, badge: "Made to order", materials: [],
       dimensions: "Length: 74 in · Width: 7 in · Fringe: 4 in",
-      care: "", madeToOrderNote: "Choose pink, purple, blue, white, or brown on Etsy.",
+      care: "", madeToOrderNote: "Select white, purple, pink, blue, or brown before adding to cart.",
     },
     {
       id: "p4", slug: "hanging-star-kpop-hat", name: "Hanging Star Crochet Hat | K-Pop Inspired",
@@ -328,7 +315,6 @@ export const siteConfig: SiteConfig = {
       variations: [],
       images: ["/images/products/hanging-star-kpop-hat-01.jpg", "/images/products/hanging-star-kpop-hat-02.jpg", "/images/products/hanging-star-kpop-hat-03.jpg"],
       imageAlt: "Crochet beanie with hanging star details and bold lettering",
-      purchaseUrl: "https://www.etsy.com/listing/4430672590/hanging-star-crochet-hat-k-pop-inspired", purchaseLabel: "View on Etsy",
       featured: true, soldOut: false, badge: "", materials: [], dimensions: "", care: "", madeToOrderNote: "",
     },
     {
@@ -339,7 +325,6 @@ export const siteConfig: SiteConfig = {
       variations: [],
       images: ["/images/products/soft-kpop-crochet-hat-01.jpg", "/images/products/soft-kpop-crochet-hat-02.jpg", "/images/products/soft-kpop-crochet-hat-03.jpg"],
       imageAlt: "Crochet beanie with bold lettering and no hanging stars",
-      purchaseUrl: "https://www.etsy.com/listing/4430664661/crochet-soft-hat-k-pop-inspired", purchaseLabel: "View on Etsy",
       featured: false, soldOut: false, badge: "", materials: [], dimensions: "", care: "", madeToOrderNote: "",
     },
     {
@@ -350,7 +335,6 @@ export const siteConfig: SiteConfig = {
       variations: [],
       images: ["/images/products/fluffy-bunny-removable-dress-01.jpg", "/images/products/fluffy-bunny-removable-dress-02.jpg", "/images/products/fluffy-bunny-removable-dress-03.jpg", "/images/products/fluffy-bunny-removable-dress-04.jpg", "/images/products/fluffy-bunny-removable-dress-05.jpg"],
       imageAlt: "Crochet bunny wearing a removable purple dress",
-      purchaseUrl: "https://www.etsy.com/listing/4520402062/crochet-soft-fluffy-bunny-in-removable", purchaseLabel: "View on Etsy",
       featured: true, soldOut: false, badge: "Ready to ship", materials: [], dimensions: "", care: "", madeToOrderNote: "",
     },
     {
@@ -361,62 +345,56 @@ export const siteConfig: SiteConfig = {
       variations: [],
       images: ["/images/products/ruffle-heart-bag-purple-tulips-01.jpg", "/images/products/ruffle-heart-bag-purple-tulips-02.jpg", "/images/products/ruffle-heart-bag-purple-tulips-03.jpg", "/images/products/ruffle-heart-bag-purple-tulips-04.jpg", "/images/products/ruffle-heart-bag-purple-tulips-05.jpg", "/images/products/ruffle-heart-bag-purple-tulips-06.jpg"],
       imageAlt: "Light purple crochet heart bag with white ruffle trim and purple tulips",
-      purchaseUrl: "https://www.etsy.com/listing/4454588630/crochet-ruffle-heart-bag-with-purple-3d", purchaseLabel: "View on Etsy",
       featured: true, soldOut: false, badge: "", materials: [], dimensions: "", care: "", madeToOrderNote: "",
     },
     {
       id: "p8", slug: "star-bag-minisode-3-tomorrow", name: "Granny-Square Star Bag — Peach and Neutral Colorway",
-      shortDescription: "Etsy listing title: “Crochet Lined Star Bag–Granny Square Star Purse.”\n\nThis Crochet Star Bag is made from multiple granny-square stars sewn together for a cute boho look, fully lined with a black-butterfly pattern on a white background (see second photo). It’s ready to ship in the color shown, lightweight but sturdy, and sized to fit your daily essentials—perfect for everyday wear, gifting, festivals, or anyone who loves unique handmade crochet accessories. This color way references TXTs Minisode 3: Tomorrow album! A perfect gift for MOAs and K-Pop lovers:)",
-      description: "Etsy listing title: “Crochet Lined Star Bag–Granny Square Star Purse.”\n\nThis Crochet Star Bag is made from multiple granny-square stars sewn together for a cute boho look, fully lined with a black-butterfly pattern on a white background (see second photo). It’s ready to ship in the color shown, lightweight but sturdy, and sized to fit your daily essentials—perfect for everyday wear, gifting, festivals, or anyone who loves unique handmade crochet accessories. This color way references TXTs Minisode 3: Tomorrow album! A perfect gift for MOAs and K-Pop lovers:)",
+      shortDescription: "Original reference name: “Crochet Lined Star Bag–Granny Square Star Purse.”\n\nThis Crochet Star Bag is made from multiple granny-square stars sewn together for a cute boho look, fully lined with a black-butterfly pattern on a white background (see second photo). It’s ready to ship in the color shown, lightweight but sturdy, and sized to fit your daily essentials—perfect for everyday wear, gifting, festivals, or anyone who loves unique handmade crochet accessories. This color way references TXTs Minisode 3: Tomorrow album! A perfect gift for MOAs and K-Pop lovers:)",
+      description: "Original reference name: “Crochet Lined Star Bag–Granny Square Star Purse.”\n\nThis Crochet Star Bag is made from multiple granny-square stars sewn together for a cute boho look, fully lined with a black-butterfly pattern on a white background (see second photo). It’s ready to ship in the color shown, lightweight but sturdy, and sized to fit your daily essentials—perfect for everyday wear, gifting, festivals, or anyone who loves unique handmade crochet accessories. This color way references TXTs Minisode 3: Tomorrow album! A perfect gift for MOAs and K-Pop lovers:)",
       price: "$45.00", currency: "USD", category: "bags",
       variations: [{"name":"Colorway","options":[{"name":"Minisode 3: Tomorrow — TXT album reference","soldOut":false}]}],
       images: ["/images/products/star-bag-minisode-3-tomorrow-01.jpg", "/images/products/star-bag-minisode-3-tomorrow-02.jpg"],
       imageAlt: "Granny-square crochet star bag in peach and neutral tones",
-      purchaseUrl: "https://www.etsy.com/listing/4430666206/crochet-lined-star-baggranny-square-star", purchaseLabel: "View on Etsy",
       featured: true, soldOut: false, badge: "Ready to ship", materials: [], dimensions: "", care: "", madeToOrderNote: "",
     },
     {
       id: "p9", slug: "star-bag-blue-hour", name: "Granny-Square Star Bag — Blue and Lavender Colorway",
-      shortDescription: "Etsy listing title: “Crochet Lined Star Bag–Granny Square Star Purse.”\n\nThis Crochet Star Bag is made from multiple granny-square stars sewn together for a cute boho look, fully lined with a black-butterfly pattern on a white background (see second photo). It’s ready to ship in the color shown, lightweight but sturdy, and sized to fit your daily essentials—perfect for everyday wear, gifting, festivals, or anyone who loves unique handmade crochet accessories. This color way references TXTs Minisode 1: Blue Hour album! A perfect gift for MOAs and K-Pop lovers:)",
-      description: "Etsy listing title: “Crochet Lined Star Bag–Granny Square Star Purse.”\n\nThis Crochet Star Bag is made from multiple granny-square stars sewn together for a cute boho look, fully lined with a black-butterfly pattern on a white background (see second photo). It’s ready to ship in the color shown, lightweight but sturdy, and sized to fit your daily essentials—perfect for everyday wear, gifting, festivals, or anyone who loves unique handmade crochet accessories. This color way references TXTs Minisode 1: Blue Hour album! A perfect gift for MOAs and K-Pop lovers:)",
+      shortDescription: "Original reference name: “Crochet Lined Star Bag–Granny Square Star Purse.”\n\nThis Crochet Star Bag is made from multiple granny-square stars sewn together for a cute boho look, fully lined with a black-butterfly pattern on a white background (see second photo). It’s ready to ship in the color shown, lightweight but sturdy, and sized to fit your daily essentials—perfect for everyday wear, gifting, festivals, or anyone who loves unique handmade crochet accessories. This color way references TXTs Minisode 1: Blue Hour album! A perfect gift for MOAs and K-Pop lovers:)",
+      description: "Original reference name: “Crochet Lined Star Bag–Granny Square Star Purse.”\n\nThis Crochet Star Bag is made from multiple granny-square stars sewn together for a cute boho look, fully lined with a black-butterfly pattern on a white background (see second photo). It’s ready to ship in the color shown, lightweight but sturdy, and sized to fit your daily essentials—perfect for everyday wear, gifting, festivals, or anyone who loves unique handmade crochet accessories. This color way references TXTs Minisode 1: Blue Hour album! A perfect gift for MOAs and K-Pop lovers:)",
       price: "$45.00", currency: "USD", category: "bags",
       variations: [{"name":"Colorway","options":[{"name":"Minisode 1: Blue Hour — TXT album reference","soldOut":false}]}],
       images: ["/images/products/star-bag-blue-hour-01.jpg", "/images/products/star-bag-blue-hour-02.jpg"],
       imageAlt: "Granny-square crochet star bag in blue and lavender tones",
-      purchaseUrl: "https://www.etsy.com/listing/4430660071/crochet-lined-star-baggranny-square-star", purchaseLabel: "View on Etsy",
       featured: false, soldOut: false, badge: "Ready to ship", materials: [], dimensions: "", care: "", madeToOrderNote: "",
     },
     {
       id: "p10", slug: "star-bag-thursdays-child", name: "Granny-Square Star Bag — Red and Tan Colorway",
-      shortDescription: "Etsy listing title: “Crochet Lined Star Bag–Granny Square Star Purse.”\n\nThis Crochet Star Bag is made from multiple granny-square stars sewn together for a cute boho look, fully lined with a black-butterfly pattern on a white background (see second photo). It’s ready to ship in the color shown, lightweight but sturdy, and sized to fit your daily essentials—perfect for everyday wear, gifting, festivals, or anyone who loves unique handmade crochet accessories. This color way references TXTs Minisode 2: Thursday&#39;s Child album! A perfect gift for MOAs and K-Pop lovers:)",
-      description: "Etsy listing title: “Crochet Lined Star Bag–Granny Square Star Purse.”\n\nThis Crochet Star Bag is made from multiple granny-square stars sewn together for a cute boho look, fully lined with a black-butterfly pattern on a white background (see second photo). It’s ready to ship in the color shown, lightweight but sturdy, and sized to fit your daily essentials—perfect for everyday wear, gifting, festivals, or anyone who loves unique handmade crochet accessories. This color way references TXTs Minisode 2: Thursday&#39;s Child album! A perfect gift for MOAs and K-Pop lovers:)",
+      shortDescription: "Original reference name: “Crochet Lined Star Bag–Granny Square Star Purse.”\n\nThis Crochet Star Bag is made from multiple granny-square stars sewn together for a cute boho look, fully lined with a black-butterfly pattern on a white background (see second photo). It’s ready to ship in the color shown, lightweight but sturdy, and sized to fit your daily essentials—perfect for everyday wear, gifting, festivals, or anyone who loves unique handmade crochet accessories. This color way references TXTs Minisode 2: Thursday&#39;s Child album! A perfect gift for MOAs and K-Pop lovers:)",
+      description: "Original reference name: “Crochet Lined Star Bag–Granny Square Star Purse.”\n\nThis Crochet Star Bag is made from multiple granny-square stars sewn together for a cute boho look, fully lined with a black-butterfly pattern on a white background (see second photo). It’s ready to ship in the color shown, lightweight but sturdy, and sized to fit your daily essentials—perfect for everyday wear, gifting, festivals, or anyone who loves unique handmade crochet accessories. This color way references TXTs Minisode 2: Thursday&#39;s Child album! A perfect gift for MOAs and K-Pop lovers:)",
       price: "$45.00", currency: "USD", category: "bags",
       variations: [{"name":"Colorway","options":[{"name":"Minisode 2: Thursday’s Child — TXT album reference","soldOut":false}]}],
       images: ["/images/products/star-bag-thursdays-child-01.jpg", "/images/products/star-bag-thursdays-child-02.jpg"],
       imageAlt: "Granny-square crochet star bag in red and tan tones",
-      purchaseUrl: "https://www.etsy.com/listing/4430658285/crochet-lined-star-baggranny-square-star", purchaseLabel: "View on Etsy",
       featured: false, soldOut: false, badge: "Ready to ship", materials: [], dimensions: "", care: "", madeToOrderNote: "",
     },
     {
       id: "p11", slug: "star-bag-temptation", name: "Granny-Square Star Bag — Green and Pink Colorway",
-      shortDescription: "Etsy listing title: “Crochet Lined Star Bag–Granny Square Star Purse.”\n\nThis Crochet Star Bag is made from multiple granny-square stars sewn together for a cute boho look, fully lined with a black-butterfly pattern on a white background (see second photo). It’s ready to ship in the color shown, lightweight but sturdy, and sized to fit your daily essentials—perfect for everyday wear, gifting, festivals, or anyone who loves unique handmade crochet accessories. This color way references TXTs The Name Chapter: Temptation album! A perfect gift for MOAs and K-Pop lovers:)",
-      description: "Etsy listing title: “Crochet Lined Star Bag–Granny Square Star Purse.”\n\nThis Crochet Star Bag is made from multiple granny-square stars sewn together for a cute boho look, fully lined with a black-butterfly pattern on a white background (see second photo). It’s ready to ship in the color shown, lightweight but sturdy, and sized to fit your daily essentials—perfect for everyday wear, gifting, festivals, or anyone who loves unique handmade crochet accessories. This color way references TXTs The Name Chapter: Temptation album! A perfect gift for MOAs and K-Pop lovers:)",
+      shortDescription: "Original reference name: “Crochet Lined Star Bag–Granny Square Star Purse.”\n\nThis Crochet Star Bag is made from multiple granny-square stars sewn together for a cute boho look, fully lined with a black-butterfly pattern on a white background (see second photo). It’s ready to ship in the color shown, lightweight but sturdy, and sized to fit your daily essentials—perfect for everyday wear, gifting, festivals, or anyone who loves unique handmade crochet accessories. This color way references TXTs The Name Chapter: Temptation album! A perfect gift for MOAs and K-Pop lovers:)",
+      description: "Original reference name: “Crochet Lined Star Bag–Granny Square Star Purse.”\n\nThis Crochet Star Bag is made from multiple granny-square stars sewn together for a cute boho look, fully lined with a black-butterfly pattern on a white background (see second photo). It’s ready to ship in the color shown, lightweight but sturdy, and sized to fit your daily essentials—perfect for everyday wear, gifting, festivals, or anyone who loves unique handmade crochet accessories. This color way references TXTs The Name Chapter: Temptation album! A perfect gift for MOAs and K-Pop lovers:)",
       price: "$45.00", currency: "USD", category: "bags",
       variations: [{"name":"Colorway","options":[{"name":"The Name Chapter: Temptation — TXT album reference","soldOut":false}]}],
       images: ["/images/products/star-bag-temptation-01.jpg", "/images/products/star-bag-temptation-02.jpg"],
       imageAlt: "Granny-square crochet star bag in green and pink tones",
-      purchaseUrl: "https://www.etsy.com/listing/4430657349/crochet-lined-star-baggranny-square-star", purchaseLabel: "View on Etsy",
       featured: false, soldOut: false, badge: "Ready to ship", materials: [], dimensions: "", care: "", madeToOrderNote: "",
     },
     {
       id: "p12", slug: "hello-kitty-pink-christmas-tree", name: "Pink Holiday Tree Cat Plush",
-      shortDescription: "Etsy listing title: “Crochet Hello Kitty Plush—Pink Christmas Tree Outfit.”\n\nThis adorable crochet Hello Kitty is dressed in a pink Christmas tree outfit, complete with kawaii holiday details for the cutest festive look. Soft, handmade, and ready to ship, she makes the perfect holiday gift, collectible plush, or seasonal decor piece for anyone who loves kawaii, Christmas, or crochet amigurumi.",
-      description: "Etsy listing title: “Crochet Hello Kitty Plush—Pink Christmas Tree Outfit.”\n\nThis adorable crochet Hello Kitty is dressed in a pink Christmas tree outfit, complete with kawaii holiday details for the cutest festive look. Soft, handmade, and ready to ship, she makes the perfect holiday gift, collectible plush, or seasonal decor piece for anyone who loves kawaii, Christmas, or crochet amigurumi.",
+      shortDescription: "Original reference name: “Crochet Hello Kitty Plush—Pink Christmas Tree Outfit.”\n\nThis adorable crochet Hello Kitty is dressed in a pink Christmas tree outfit, complete with kawaii holiday details for the cutest festive look. Soft, handmade, and ready to ship, she makes the perfect holiday gift, collectible plush, or seasonal decor piece for anyone who loves kawaii, Christmas, or crochet amigurumi.",
+      description: "Original reference name: “Crochet Hello Kitty Plush—Pink Christmas Tree Outfit.”\n\nThis adorable crochet Hello Kitty is dressed in a pink Christmas tree outfit, complete with kawaii holiday details for the cutest festive look. Soft, handmade, and ready to ship, she makes the perfect holiday gift, collectible plush, or seasonal decor piece for anyone who loves kawaii, Christmas, or crochet amigurumi.",
       price: "$40.00", currency: "USD", category: "amigurumi",
       variations: [],
       images: ["/images/products/hello-kitty-pink-christmas-tree-01.jpg", "/images/products/hello-kitty-pink-christmas-tree-02.jpg", "/images/products/hello-kitty-pink-christmas-tree-03.jpg"],
       imageAlt: "Crochet cat plush in a pink Christmas tree outfit",
-      purchaseUrl: "https://www.etsy.com/listing/4430668814/crochet-hello-kitty-plushpink-christmas", purchaseLabel: "View on Etsy",
       featured: false, soldOut: false, badge: "Ready to ship", materials: [], dimensions: "", care: "", madeToOrderNote: "",
     },
     {
@@ -427,7 +405,6 @@ export const siteConfig: SiteConfig = {
       variations: [],
       images: ["/images/products/grape-cow-amigurumi-01.jpg", "/images/products/grape-cow-amigurumi-02.jpg", "/images/products/grape-cow-amigurumi-03.jpg", "/images/products/grape-cow-amigurumi-04.jpg"],
       imageAlt: "Crochet grape cow with a removable grape bag",
-      purchaseUrl: "https://www.etsy.com/listing/4520404999/crochet-grape-cow-amigurumi-with-grape", purchaseLabel: "View on Etsy",
       featured: false, soldOut: false, badge: "Ready to ship", materials: [], dimensions: "", care: "", madeToOrderNote: "",
     },
     {
@@ -438,7 +415,6 @@ export const siteConfig: SiteConfig = {
       variations: [],
       images: ["/images/products/bunny-removable-axolotl-costume-01.jpg", "/images/products/bunny-removable-axolotl-costume-02.jpg", "/images/products/bunny-removable-axolotl-costume-03.jpg", "/images/products/bunny-removable-axolotl-costume-04.jpg", "/images/products/bunny-removable-axolotl-costume-05.jpg", "/images/products/bunny-removable-axolotl-costume-06.jpg", "/images/products/bunny-removable-axolotl-costume-07.jpg", "/images/products/bunny-removable-axolotl-costume-08.jpg", "/images/products/bunny-removable-axolotl-costume-09.jpg"],
       imageAlt: "Crochet bunny wearing a removable axolotl costume",
-      purchaseUrl: "https://www.etsy.com/listing/4520397372/crochet-fluffy-soft-bunny-amigurumu-in", purchaseLabel: "View on Etsy",
       featured: false, soldOut: false, badge: "Ready to ship", materials: [], dimensions: "", care: "", madeToOrderNote: "",
     },
     {
@@ -449,7 +425,6 @@ export const siteConfig: SiteConfig = {
       variations: [],
       images: ["/images/products/rainbow-scale-dino-amigurumi-01.jpg", "/images/products/rainbow-scale-dino-amigurumi-02.jpg", "/images/products/rainbow-scale-dino-amigurumi-03.jpg", "/images/products/rainbow-scale-dino-amigurumi-04.jpg", "/images/products/rainbow-scale-dino-amigurumi-05.jpg"],
       imageAlt: "Crochet dinosaur plush with rainbow scales",
-      purchaseUrl: "https://www.etsy.com/listing/4520405172/crochet-dino-amigurumi", purchaseLabel: "View on Etsy",
       featured: false, soldOut: false, badge: "Ready to ship", materials: [], dimensions: "", care: "", madeToOrderNote: "",
     },
     {
@@ -457,60 +432,57 @@ export const siteConfig: SiteConfig = {
       shortDescription: "Handmade with love, these crochet lily bags come in dreamy purple and pink shades that make any outfit pop. Lightweight yet sturdy, each bag features a unique flower inspired design that’s both practical and eye catching, perfect for everyday use or as a thoughtful gift.",
       description: "Handmade with love, these crochet lily bags come in dreamy purple and pink shades that make any outfit pop. Lightweight yet sturdy, each bag features a unique flower inspired design that’s both practical and eye catching, perfect for everyday use or as a thoughtful gift.",
       price: "$60.00", currency: "USD", category: "bags",
-      variations: [{"name":"Primary color","options":[{"name":"Pink","soldOut":false},{"name":"Purple","soldOut":false}]}],
+      variations: [{"name":"Color","options":[{"name":"Pink","soldOut":false},{"name":"Purple","soldOut":false}]}],
       images: ["/images/products/crochet-lily-shoulder-bag-01.jpg", "/images/products/crochet-lily-shoulder-bag-02.jpg", "/images/products/crochet-lily-shoulder-bag-03.jpg", "/images/products/crochet-lily-shoulder-bag-04.jpg"],
       imageAlt: "Crochet lily shoulder bag in pink or purple",
-      purchaseUrl: "https://www.etsy.com/listing/4430660806/crochet-lily-shoulder-bag", purchaseLabel: "Choose a color on Etsy",
       featured: true, soldOut: false, badge: "Made to order", materials: [], dimensions: "", care: "",
-      madeToOrderNote: "Choose the color on Etsy before ordering.",
+      madeToOrderNote: "Select an available color before adding to cart.",
     },
     {
       id: "p17", slug: "beaded-ruffle-star-bag", name: "Crochet Star Bag with Beads and Ruffles — Lined, Zipper",
       shortDescription: "Each bag is handmade by me, so there may be small differences between each one, making every bag unique ♡",
       description: "Each bag is handmade by me, so there may be small differences between each one, making every bag unique ♡\n\n⭐ Fully lined inside\n⭐ Zipper closure\n⭐ Will hold heavy things and NOT stretch\n⭐ Comfortable, lined shoulder strap\n\nIf you have any questions, feel free to message me! ♡",
       price: "$60.00", currency: "USD", category: "bags",
-      variations: [{"name":"Primary color","options":[{"name":"Yellow","soldOut":true},{"name":"Purple","soldOut":true},{"name":"Pink","soldOut":true},{"name":"Custom (dm me)","soldOut":false}]}],
+      variations: [{"name":"Color","options":[{"name":"Yellow","soldOut":true},{"name":"Purple","soldOut":true},{"name":"Pink","soldOut":true},{"name":"Custom colors","soldOut":false}]}],
       images: ["/images/products/beaded-ruffle-star-bag-01.jpg", "/images/products/beaded-ruffle-star-bag-02.jpg", "/images/products/beaded-ruffle-star-bag-03.jpg", "/images/products/beaded-ruffle-star-bag-04.jpg", "/images/products/beaded-ruffle-star-bag-05.jpg", "/images/products/beaded-ruffle-star-bag-06.jpg", "/images/products/beaded-ruffle-star-bag-07.jpg", "/images/products/beaded-ruffle-star-bag-08.jpg", "/images/products/beaded-ruffle-star-bag-09.jpg", "/images/products/beaded-ruffle-star-bag-10.jpg", "/images/products/beaded-ruffle-star-bag-11.jpg", "/images/products/beaded-ruffle-star-bag-12.jpg", "/images/products/beaded-ruffle-star-bag-13.jpg", "/images/products/beaded-ruffle-star-bag-14.jpg"],
       imageAlt: "Crochet star bag with beads, ruffles, lining, and a zipper",
-      purchaseUrl: "https://www.etsy.com/listing/4540483150/crochet-star-bag-w-beads-and-ruffles", purchaseLabel: "Choose a color on Etsy",
+      customizationPrompt: "Describe the custom colors you want",
+      customizationRequiredFor: "Custom colors",
       featured: true, soldOut: false, badge: "Handmade", materials: [], dimensions: "", care: "",
-      madeToOrderNote: "Choose the color on Etsy before ordering.",
+      madeToOrderNote: "Select an available color before adding to cart.",
     },
     {
       id: "p18", slug: "kpop-lightstick-crochet-holder", name: "KPOP Lightstick Crochet Holder",
       shortDescription: "A handmade crochet holder designed to fit your Kpop lightstick perfectly! Made to order in any color you choose, so it can match your favorite group, aesthetic, or outfit. Cute, functional, and great for concerts, storage, or display☺️ Each holder is carefully crafted from my original design and one of a kind💞",
       description: "A handmade crochet holder designed to fit your Kpop lightstick perfectly! Made to order in any color you choose, so it can match your favorite group, aesthetic, or outfit. Cute, functional, and great for concerts, storage, or display☺️ Each holder is carefully crafted from my original design and one of a kind💞",
       price: "$16.00", currency: "USD", category: "lightstick-holders",
-      variations: [{"name":"Color","options":[{"name":"1","soldOut":false},{"name":"2","soldOut":false},{"name":"3","soldOut":false},{"name":"4","soldOut":false},{"name":"5","soldOut":false},{"name":"6","soldOut":false},{"name":"7","soldOut":false},{"name":"8","soldOut":false},{"name":"9","soldOut":false},{"name":"10","soldOut":false},{"name":"11","soldOut":false},{"name":"12","soldOut":false},{"name":"13","soldOut":false},{"name":"14","soldOut":false},{"name":"15","soldOut":false},{"name":"16","soldOut":false},{"name":"17","soldOut":false},{"name":"18","soldOut":false},{"name":"19","soldOut":false},{"name":"20","soldOut":false},{"name":"21","soldOut":false},{"name":"22","soldOut":false},{"name":"23","soldOut":false},{"name":"24","soldOut":false},{"name":"25","soldOut":false},{"name":"26","soldOut":false}]}],
+      variations: [{"name":"Color number","options":[{"name":"1","soldOut":false},{"name":"2","soldOut":false},{"name":"3","soldOut":false},{"name":"4","soldOut":false},{"name":"5","soldOut":false},{"name":"6","soldOut":false},{"name":"7","soldOut":false},{"name":"8","soldOut":false},{"name":"9","soldOut":false},{"name":"10","soldOut":false},{"name":"11","soldOut":false},{"name":"12","soldOut":false},{"name":"13","soldOut":false},{"name":"14","soldOut":false},{"name":"15","soldOut":false},{"name":"16","soldOut":false},{"name":"17","soldOut":false},{"name":"18","soldOut":false},{"name":"19","soldOut":false},{"name":"20","soldOut":false},{"name":"21","soldOut":false},{"name":"22","soldOut":false},{"name":"23","soldOut":false},{"name":"24","soldOut":false},{"name":"25","soldOut":false},{"name":"26","soldOut":false}]}],
       images: ["/images/products/kpop-lightstick-crochet-holder-01.jpg", "/images/products/kpop-lightstick-crochet-holder-02.jpg", "/images/products/kpop-lightstick-crochet-holder-03.jpg", "/images/products/kpop-lightstick-crochet-holder-04.jpg", "/images/products/kpop-lightstick-crochet-holder-05.jpg", "/images/products/kpop-lightstick-crochet-holder-06.jpg", "/images/products/kpop-lightstick-crochet-holder-07.jpg", "/images/products/kpop-lightstick-crochet-holder-08.jpg", "/images/products/kpop-lightstick-crochet-holder-09.jpg", "/images/products/kpop-lightstick-crochet-holder-10.jpg", "/images/products/kpop-lightstick-crochet-holder-11.jpg"],
       imageAlt: "Crochet holder for a K-pop lightstick",
-      purchaseUrl: "https://www.etsy.com/listing/4454582834/kpop-lightstick-crochet-holder", purchaseLabel: "Choose a color on Etsy",
       featured: true, soldOut: false, badge: "Made to order", materials: [], dimensions: "", care: "",
-      madeToOrderNote: "Choose the color on Etsy before ordering.",
+      madeToOrderNote: "Select an available color before adding to cart.",
     },
     {
       id: "p19", slug: "hanging-star-bag-keychain", name: "Hanging Star Bag Crochet Keychain",
       shortDescription: "Cute handmade crochet hanging star keychain ⭐ Perfect for adding a little charm to your keys, bags, backpacks, or purses! Each star is handmade with care, so every one is slightly unique ♡",
       description: "Cute handmade crochet hanging star keychain ⭐ Perfect for adding a little charm to your keys, bags, backpacks, or purses! Each star is handmade with care, so every one is slightly unique ♡",
       price: "$15.00", currency: "USD", category: "keychains",
-      variations: [{"name":"Primary color","options":[{"name":"Yellow","soldOut":false},{"name":"Purple","soldOut":false},{"name":"Blue","soldOut":false},{"name":"Pink","soldOut":false}]}],
+      variations: [{"name":"Color","options":[{"name":"Yellow","soldOut":false},{"name":"Purple","soldOut":false},{"name":"Blue","soldOut":false},{"name":"Pink","soldOut":false}]}],
       images: ["/images/products/hanging-star-bag-keychain-01.jpg", "/images/products/hanging-star-bag-keychain-02.jpg", "/images/products/hanging-star-bag-keychain-03.jpg", "/images/products/hanging-star-bag-keychain-04.jpg", "/images/products/hanging-star-bag-keychain-05.jpg"],
       imageAlt: "Crochet hanging star keychain in several colors",
-      purchaseUrl: "https://www.etsy.com/listing/4540469235/hanging-star-bag-crochet-keychain", purchaseLabel: "Choose a color on Etsy",
       featured: false, soldOut: false, badge: "", materials: [], dimensions: "", care: "",
-      madeToOrderNote: "Choose a color on Etsy before ordering.",
+      madeToOrderNote: "Select a color before adding to cart.",
     },
     {
       id: "p20", slug: "crochet-jellyfish-keychain", name: "Crochet Jellyfish Keychain",
       shortDescription: "These handmade jellyfish keychains are the perfect mix of cute and unique! Each one is carefully crocheted with soft yarn and decorated with beads for an extra touch of sparkle. Available in pink, purple, and blue, they make a fun ocean inspired accessory for your keys, backpack, or purse, and a thoughtful gift for any sea life lover.",
       description: "These handmade jellyfish keychains are the perfect mix of cute and unique! Each one is carefully crocheted with soft yarn and decorated with beads for an extra touch of sparkle. Available in pink, purple, and blue, they make a fun ocean inspired accessory for your keys, backpack, or purse, and a thoughtful gift for any sea life lover.",
       price: "$17.00", currency: "USD", category: "keychains",
-      variations: [{"name":"Primary color","options":[{"name":"Pink","soldOut":false},{"name":"Purple","soldOut":false},{"name":"Blue","soldOut":false}]}],
+      variations: [{"name":"Color","options":[{"name":"Pink","soldOut":false},{"name":"Purple","soldOut":false},{"name":"Blue","soldOut":false}]}],
       images: ["/images/products/crochet-jellyfish-keychain-01.jpg", "/images/products/crochet-jellyfish-keychain-02.jpg", "/images/products/crochet-jellyfish-keychain-03.jpg"],
       imageAlt: "Crochet jellyfish keychain with bead details",
-      purchaseUrl: "https://www.etsy.com/listing/4430655317/crochet-jellyfish-keychain", purchaseLabel: "Choose a color on Etsy",
       featured: false, soldOut: false, badge: "Made to order", materials: [], dimensions: "", care: "",
-      madeToOrderNote: "Choose pink, purple, or blue on Etsy before ordering.",
+      madeToOrderNote: "Select pink, purple, or blue before adding to cart.",
     },
   ],
 
@@ -518,7 +490,7 @@ export const siteConfig: SiteConfig = {
     eyebrow: "Behind the stitches",
     heading: "REPLACE_ME",
     body: ["REPLACE_ME", "REPLACE_ME"],
-    portrait: "/images/about.jpg",
+    portrait: "/images/products/fluffy-bunny-removable-dress-01.jpg",
     portraitAlt: "REPLACE_ME",
     ownerName: "REPLACE_ME",
     ownerBio: "REPLACE_ME",
@@ -550,8 +522,8 @@ export const siteConfig: SiteConfig = {
       },
     ],
     timeline: "REPLACE_ME",
-    contactLabel: "Message on Etsy",
-    contactUrl: "https://www.etsy.com/shop/CharmberryCrochets",
+    contactLabel: "Browse products",
+    contactUrl: "/shop",
   },
 
   // Leave empty to hide the reviews section entirely. Never fabricate reviews.
@@ -587,10 +559,10 @@ export const siteConfig: SiteConfig = {
 
   // Leave empty to hide "From the studio" section.
   socialGallery: [
-    { image: "/images/studio-01.jpg", alt: "REPLACE_ME", href: "" },
-    { image: "/images/studio-02.jpg", alt: "REPLACE_ME", href: "" },
-    { image: "/images/studio-03.jpg", alt: "REPLACE_ME", href: "" },
-    { image: "/images/studio-04.jpg", alt: "REPLACE_ME", href: "" },
+    { image: "/images/products/crochet-cat-ear-beanie-stars-02.jpg", alt: "Cat-ear crochet beanie with star charms", href: "" },
+    { image: "/images/products/ruffle-heart-bag-purple-tulips-02.jpg", alt: "Lavender crochet heart bag with raised tulips", href: "" },
+    { image: "/images/products/crochet-jellyfish-keychain-02.jpg", alt: "Colorful handmade crochet jellyfish keychain", href: "" },
+    { image: "/images/products/kpop-lightstick-crochet-holder-03.jpg", alt: "Handmade crochet holder for a lightstick", href: "" },
   ],
 
   footer: {
@@ -601,6 +573,6 @@ export const siteConfig: SiteConfig = {
     title: "Charmberry Crochets — Handmade Crochet",
     description:
       "REPLACE_ME — a one or two sentence description of Charmberry Crochets for search results.",
-    ogImage: "/images/og.jpg",
+    ogImage: "/images/brand-logo.jpg",
   },
 };

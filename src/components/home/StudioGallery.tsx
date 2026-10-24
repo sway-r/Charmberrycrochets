@@ -8,7 +8,7 @@ export function StudioGallery() {
 
   if (socialGallery.length === 0) return null;
 
-  const followHref = urls.instagram || urls.tiktok || urls.etsy;
+  const followHref = urls.instagram || urls.tiktok;
 
   return (
     <section className="mx-auto max-w-[var(--container-max)] px-6 py-20 sm:px-8 lg:px-12 lg:py-28">

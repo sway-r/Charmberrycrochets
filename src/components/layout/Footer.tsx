@@ -13,7 +13,6 @@ export function Footer() {
   const socialLinks = [
     { label: "Instagram", href: urls.instagram },
     { label: "TikTok", href: urls.tiktok },
-    { label: "Etsy", href: urls.etsy },
   ].filter((link) => link.href);
 
   return (
